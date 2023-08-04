@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductService } from 'src/app/services/product.service';
 import { Product } from '../../../models/Product';
+import { Router } from '@angular/router';
 
 interface HtmlInputEvent extends Event {
   target: HTMLInputElement & EventTarget;
@@ -20,7 +21,10 @@ export class ProductsCreateComponent implements OnInit {
   public success_message: any;
   public error_message: any;
 
-  constructor(private _productService: ProductService) {
+  constructor(
+    private _productService: ProductService,
+    private router: Router
+  ) {
     this.product = new Product('', '', '', '', '', '', 1, 1, '', '');
   }
 
@@ -81,8 +85,9 @@ export class ProductsCreateComponent implements OnInit {
             this.success_message = 'Producto registrado';
             this.product = new Product('', '', '', '', '', '', 1, 1, '', '');
             this.imgSelect = '../../../../assets/img/default.jpg';
+            this.router.navigate(['/products'])
           },
-          (error) => {}
+          (error) => { }
         );
     } else {
       this.error_message = 'Complete correctamente formulario';

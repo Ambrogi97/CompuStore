@@ -5,9 +5,12 @@ const mongoose = require('mongoose');
 const swaggerUI = require('swagger-ui-express');
 const swaggerJsDoc = require('swagger-jsdoc');
 const cors = require('cors');
+const dotenv = require('dotenv')
+
+dotenv.config()
 
 //Creo puerto y le asigno servidor
-const PORT = process.env.PORT || 4201;
+const { PORT, MONGODB_URI } = process.env
 //Inicializo express
 const app = express();
 
@@ -51,13 +54,16 @@ const marca_routes = require('./routes//marca');
 const buy_routes = require('./routes/buy');
 const client_routes = require('./routes/client');
 const sale_routes = require('./routes/sale');
+const report_routes = require('./routes/report');
+const { seed } = require('./services/seeder');
 
 //conectamos base de datos con la aplicacion
-mongoose.connect("mongodb+srv://campo:campo1@mcga2022.xebp125.mongodb.net/test", (err, resp) => {
+mongoose.connect(MONGODB_URI, async (err, resp) => {
   if (err) {
     throw err;
   } else {
     console.log('corriendo servidor ');
+    await seed()
     app.listen(PORT, function () {
       console.log('servidor OK', +PORT);
     });
@@ -87,5 +93,6 @@ app.use('/api', marca_routes);
 app.use('/api', buy_routes);
 app.use('/api', client_routes);
 app.use('/api', sale_routes);
+app.use('/api', report_routes);
 
 module.exports = app;

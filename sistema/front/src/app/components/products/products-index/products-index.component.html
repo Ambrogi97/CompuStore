@@ -22,13 +22,7 @@
                 {{ success_message }}
               </div>
 
-              <button
-                type="button"
-                class="close"
-                (click)="close_alert()"
-                data-dismiss="alert"
-                aria-label="Close"
-              >
+              <button type="button" class="close" (click)="close_alert()" data-dismiss="alert" aria-label="Close">
                 <span aria-hidden="true">×</span>
               </button>
             </div>
@@ -41,18 +35,9 @@
                   <div class="col-lg-6">
                     <h5 class="card-title">Filtro de productos</h5>
                     <form #searchForm="ngForm" (ngSubmit)="search(searchForm)">
-                      <div
-                        class="input-group date"
-                        id="datetimepicker-minimum"
-                        data-target-input="nearest"
-                      >
-                        <input
-                          type="text"
-                          class="form-control datetimepicker-input"
-                          #filtro="ngModel"
-                          name="filtro"
-                          [(ngModel)]="filtroText"
-                        />
+                      <div class="input-group date" id="datetimepicker-minimum" data-target-input="nearest">
+                        <input type="text" class="form-control datetimepicker-input" #filtro="ngModel" name="filtro"
+                          [(ngModel)]="filtroText" />
                         <div class="input-group-append">
                           <button type="submit" class="input-group-text">
                             <i class="fa fa-search"></i>
@@ -61,10 +46,7 @@
                       </div>
                     </form>
                     <br />
-                    <a
-                      [routerLink]="['/products/registrar']"
-                      class="btn btn-primary"
-                      >Registrar Compra
+                    <a [routerLink]="['/products/registrar']" class="btn btn-primary">Registrar producto
                       <i class="fas fa-shopping-cart"></i>
                     </a>
                   </div>
@@ -73,28 +55,15 @@
                   <div class="col-lg-6">
                     <h5 class="card-title">categorias<br /></h5>
                     <div class="btn-group">
-                      <button
-                        type="button"
-                        class="btn mb-1 btn-primary dropdown-toggle"
-                        data-toggle="dropdown"
-                        aria-haspopup="true"
-                        aria-expanded="false"
-                      >
+                      <button type="button" class="btn mb-1 btn-primary dropdown-toggle" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">
                         Opciones
                       </button>
                       <div class="dropdown-menu">
-                        <a
-                          class="dropdown-item"
-                          data-toggle="modal"
-                          data-target="#modal-data-categoria"
-                          >Ver categorias</a
-                        >
-                        <a
-                          class="dropdown-item"
-                          data-toggle="modal"
-                          data-target="#modal-save-categoria"
-                          >Registrar Categoria</a
-                        >
+                        <a class="dropdown-item" data-toggle="modal" data-target="#modal-data-categoria">Ver
+                          categorias</a>
+                        <a class="dropdown-item" data-toggle="modal" data-target="#modal-save-categoria">Registrar
+                          Categoria</a>
                       </div>
                     </div>
                     <!--productos/proveedores-->
@@ -104,28 +73,15 @@
                       proveedores
                     </h5>
                     <div class="btn-group">
-                      <button
-                        type="button"
-                        class="btn mb-1 btn-primary dropdown-toggle"
-                        data-toggle="dropdown"
-                        aria-haspopup="true"
-                        aria-expanded="false"
-                      >
+                      <button type="button" class="btn mb-1 btn-primary dropdown-toggle" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">
                         Opciones
                       </button>
                       <div class="dropdown-menu">
-                        <a
-                          class="dropdown-item"
-                          data-toggle="modal"
-                          data-target="#modal-data-proveedor"
-                          >Ver proveedores</a
-                        >
-                        <a
-                          class="dropdown-item"
-                          data-toggle="modal"
-                          data-target="#modal-save-proveedor"
-                          >Registrar Proveedor</a
-                        >
+                        <a class="dropdown-item" data-toggle="modal" data-target="#modal-data-proveedor">Ver
+                          proveedores</a>
+                        <a class="dropdown-item" data-toggle="modal" data-target="#modal-save-proveedor">Registrar
+                          Proveedor</a>
                       </div>
                     </div>
                     <!--marcas-->
@@ -134,28 +90,13 @@
                       marcas
                     </h5>
                     <div class="btn-group">
-                      <button
-                        type="button"
-                        class="btn mb-1 btn-primary dropdown-toggle"
-                        data-toggle="dropdown"
-                        aria-haspopup="true"
-                        aria-expanded="false"
-                      >
+                      <button type="button" class="btn mb-1 btn-primary dropdown-toggle" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">
                         Opciones
                       </button>
                       <div class="dropdown-menu">
-                        <a
-                          class="dropdown-item"
-                          data-toggle="modal"
-                          data-target="#modal-data-marca"
-                          >Ver marcas</a
-                        >
-                        <a
-                          class="dropdown-item"
-                          data-toggle="modal"
-                          data-target="#modal-save-marca"
-                          >Registrar marca</a
-                        >
+                        <a class="dropdown-item" data-toggle="modal" data-target="#modal-data-marca">Ver marcas</a>
+                        <a class="dropdown-item" data-toggle="modal" data-target="#modal-save-marca">Registrar marca</a>
                       </div>
                     </div>
                   </div>
@@ -175,21 +116,14 @@
                     <th>Opciones</th>
                   </tr>
                 </thead>
-                <tbody
-                  *ngFor="
+                <tbody *ngFor="
                     let item of products
                       | paginate: { itemsPerPage: 10, currentPage: p };
                     idx
-                  "
-                >
+                  ">
                   <td>
-                    <img
-                      [src]="url + 'producto/img/' + item.imagen"
-                      width="48"
-                      height="48"
-                      class="rounded-circle mr-2"
-                      alt="Avatar"
-                    />
+                    <img [src]="url + 'producto/img/' + item.imagen" width="48" height="48" class="rounded-circle mr-2"
+                      alt="Avatar" />
                   </td>
                   <td>{{ item.titulo }}</td>
                   <td>{{ item.descripcion }}</td>
@@ -199,32 +133,16 @@
                   <td>{{ item.stock }}</td>
                   <td>
                     <div class="btn-group">
-                      <button
-                        type="button"
-                        class="btn mb-1 btn-secondary dropdown-toggle"
-                        data-toggle="dropdown"
-                        aria-haspopup="true"
-                        aria-expanded="false"
-                      >
+                      <button type="button" class="btn mb-1 btn-secondary dropdown-toggle" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">
                         <i class="fas fa-cog"></i>
                       </button>
                       <div class="dropdown-menu">
-                        <a
-                          class="dropdown-item"
-                          [routerLink]="['/products/editar/', item._id]"
-                          >Editar registro</a
-                        >
+                        <a class="dropdown-item" [routerLink]="['/products/editar/', item._id]">Editar registro</a>
 
-                        <a class="dropdown-item" (click)="eliminar(item._id)"
-                          >Eliminar registro</a
-                        >
-                        <a
-                          class="dropdown-item"
-                          data-toggle="modal"
-                          (click)="get_id(item._id)"
-                          [attr.data-target]="'#modal-stock-' + idx"
-                          >Aumentar Stock</a
-                        >
+                        <a class="dropdown-item" (click)="eliminar(item._id)">Eliminar registro</a>
+                        <a class="dropdown-item" data-toggle="modal" (click)="get_id(item._id)"
+                          [attr.data-target]="'#modal-stock-' + idx">Aumentar Stock</a>
                       </div>
                     </div>
                   </td>
@@ -236,57 +154,29 @@
         </div>
 
         <!--MODAL AGREGAR CATEGORIA-->
-        <div
-          class="modal fade"
-          id="modal-save-categoria"
-          tabindex="-1"
-          role="dialog"
-          style="display: none"
-          aria-hidden="true"
-        >
+        <div class="modal fade" id="modal-save-categoria" tabindex="-1" role="dialog" style="display: none"
+          aria-hidden="true">
           <form #categoriaForm="ngForm" (ngSubmit)="save_cat(categoriaForm)">
             <div class="modal-dialog modal-dialog-centered" role="document">
               <div class="modal-content">
                 <div class="modal-header">
                   <h5 class="modal-title">Registrar Categoria</h5>
-                  <button
-                    type="button"
-                    class="close"
-                    data-dismiss="modal"
-                    aria-label="Close"
-                  >
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">×</span>
                   </button>
                 </div>
                 <div class="modal-body m-3">
                   <div class="form-group">
-                    <input
-                      type="text"
-                      class="form-control"
-                      placeholder="Nombre de la categoria"
-                      #nombre_cat="ngModel"
-                      name="nombre_cat"
-                      [(ngModel)]="nombre_catText"
-                      required
-                    />
+                    <input type="text" class="form-control" placeholder="Nombre de la categoria" #nombre_cat="ngModel"
+                      name="nombre_cat" [(ngModel)]="nombre_catText" required />
                   </div>
                   <div class="form-group">
-                    <textarea
-                      class="form-control"
-                      placeholder="Breve descripcion"
-                      #descripcion_cat="ngModel"
-                      name="descripcion_cat"
-                      [(ngModel)]="descripcion_catText"
-                      required
-                    ></textarea>
+                    <textarea class="form-control" placeholder="Breve descripcion" #descripcion_cat="ngModel"
+                      name="descripcion_cat" [(ngModel)]="descripcion_catText" required></textarea>
                   </div>
                 </div>
                 <div class="modal-footer">
-                  <button
-                    type="button"
-                    class="btn btn-danger"
-                    data-dismiss="modal"
-                  >
+                  <button type="button" class="btn btn-danger" data-dismiss="modal">
                     Cerrar
                   </button>
                   <button type="submit" class="btn btn-primary">
@@ -299,27 +189,13 @@
         </div>
 
         <!--MODAL LISTAR CATEGORIA-->
-        <div
-          class="modal fade"
-          id="modal-data-categoria"
-          tabindex="-1"
-          role="dialog"
-          style="display: none"
-          aria-hidden="true"
-        >
-          <div
-            class="modal-dialog modal-dialog-centered modal-dialog-scrollablea"
-            role="document"
-          >
+        <div class="modal fade" id="modal-data-categoria" tabindex="-1" role="dialog" style="display: none"
+          aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered modal-dialog-scrollablea" role="document">
             <div class="modal-content">
               <div class="modal-header">
                 <h5 class="modal-title">Listado de categorias</h5>
-                <button
-                  type="button"
-                  class="close"
-                  data-dismiss="modal"
-                  aria-label="Close"
-                >
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                   <span aria-hidden="true">×</span>
                 </button>
               </div>
@@ -334,11 +210,7 @@
                 </table>
               </div>
               <div class="modal-footer">
-                <button
-                  type="button"
-                  class="btn btn-danger"
-                  data-dismiss="modal"
-                >
+                <button type="button" class="btn btn-danger" data-dismiss="modal">
                   Cerrar
                 </button>
               </div>
@@ -346,49 +218,27 @@
           </div>
         </div>
         <!--MODAL AGREGAR MARCA-->
-        <div
-          class="modal fade"
-          id="modal-save-marca"
-          tabindex="-1"
-          role="dialog"
-          style="display: none"
-          aria-hidden="true"
-        >
+        <div class="modal fade" id="modal-save-marca" tabindex="-1" role="dialog" style="display: none"
+          aria-hidden="true">
           <form #marcaForm="ngForm" (ngSubmit)="save_marca(marcaForm)">
             <div class="modal-dialog modal-dialog-centered" role="document">
               <div class="modal-content">
                 <div class="modal-header">
                   <h5 class="modal-title">Registrar Marca</h5>
-                  <button
-                    type="button"
-                    class="close"
-                    data-dismiss="modal"
-                    aria-label="Close"
-                  >
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">×</span>
                   </button>
                 </div>
 
                 <div class="modal-body m-3">
                   <div class="form-group">
-                    <input
-                      type="text"
-                      class="form-control"
-                      placeholder="Nombre de la marca"
-                      #nombre_marca="ngModel"
-                      name="nombre_marca"
-                      [(ngModel)]="nombre_marcaText"
-                      required
-                    />
+                    <input type="text" class="form-control" placeholder="Nombre de la marca" #nombre_marca="ngModel"
+                      name="nombre_marca" [(ngModel)]="nombre_marcaText" required />
                   </div>
                 </div>
 
                 <div class="modal-footer">
-                  <button
-                    type="button"
-                    class="btn btn-danger"
-                    data-dismiss="modal"
-                  >
+                  <button type="button" class="btn btn-danger" data-dismiss="modal">
                     Cerrar
                   </button>
                   <button type="submit" class="btn btn-primary">
@@ -401,27 +251,13 @@
         </div>
 
         <!--MODAL LISTAR MARCA-->
-        <div
-          class="modal fade"
-          id="modal-data-marca"
-          tabindex="-1"
-          role="dialog"
-          style="display: none"
-          aria-hidden="true"
-        >
-          <div
-            class="modal-dialog modal-dialog-centered modal-dialog-scrollablea"
-            role="document"
-          >
+        <div class="modal fade" id="modal-data-marca" tabindex="-1" role="dialog" style="display: none"
+          aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered modal-dialog-scrollablea" role="document">
             <div class="modal-content">
               <div class="modal-header">
                 <h5 class="modal-title">Listado de marcas</h5>
-                <button
-                  type="button"
-                  class="close"
-                  data-dismiss="modal"
-                  aria-label="Close"
-                >
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                   <span aria-hidden="true">×</span>
                 </button>
               </div>
@@ -436,11 +272,7 @@
                 </table>
               </div>
               <div class="modal-footer">
-                <button
-                  type="button"
-                  class="btn btn-danger"
-                  data-dismiss="modal"
-                >
+                <button type="button" class="btn btn-danger" data-dismiss="modal">
                   Cerrar
                 </button>
               </div>
@@ -448,57 +280,29 @@
           </div>
         </div>
         <!--MODAL AGREGAR PROVEEDOR-->
-        <div
-          class="modal fade"
-          id="modal-save-proveedor"
-          tabindex="-1"
-          role="dialog"
-          style="display: none"
-          aria-hidden="true"
-        >
+        <div class="modal fade" id="modal-save-proveedor" tabindex="-1" role="dialog" style="display: none"
+          aria-hidden="true">
           <form #proveedorForm="ngForm" (ngSubmit)="save_prov(proveedorForm)">
             <div class="modal-dialog modal-dialog-centered" role="document">
               <div class="modal-content">
                 <div class="modal-header">
                   <h5 class="modal-title">Registrar Proveedor</h5>
-                  <button
-                    type="button"
-                    class="close"
-                    data-dismiss="modal"
-                    aria-label="Close"
-                  >
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">×</span>
                   </button>
                 </div>
                 <div class="modal-body m-3">
                   <div class="form-group">
-                    <input
-                      type="text"
-                      class="form-control"
-                      placeholder="Nombre del proveedor"
-                      #nombre_prov="ngModel"
-                      name="nombre_prov"
-                      [(ngModel)]="nombre_provText"
-                      required
-                    />
+                    <input type="text" class="form-control" placeholder="Nombre del proveedor" #nombre_prov="ngModel"
+                      name="nombre_prov" [(ngModel)]="nombre_provText" required />
                   </div>
                   <div class="form-group">
-                    <textarea
-                      class="form-control"
-                      placeholder="Ubicacion"
-                      #direccion_prov="ngModel"
-                      name="direccion_prov"
-                      [(ngModel)]="direccion_provText"
-                      required
-                    ></textarea>
+                    <textarea class="form-control" placeholder="Ubicacion" #direccion_prov="ngModel"
+                      name="direccion_prov" [(ngModel)]="direccion_provText" required></textarea>
                   </div>
                 </div>
                 <div class="modal-footer">
-                  <button
-                    type="button"
-                    class="btn btn-danger"
-                    data-dismiss="modal"
-                  >
+                  <button type="button" class="btn btn-danger" data-dismiss="modal">
                     Cerrar
                   </button>
                   <button type="submit" class="btn btn-primary">
@@ -510,27 +314,13 @@
           </form>
         </div>
         <!--MODAL LISTAR PROVEEDORES-->
-        <div
-          class="modal fade"
-          id="modal-data-proveedor"
-          tabindex="-1"
-          role="dialog"
-          style="display: none"
-          aria-hidden="true"
-        >
-          <div
-            class="modal-dialog modal-dialog-centered modal-dialog-scrollablea"
-            role="document"
-          >
+        <div class="modal fade" id="modal-data-proveedor" tabindex="-1" role="dialog" style="display: none"
+          aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered modal-dialog-scrollablea" role="document">
             <div class="modal-content">
               <div class="modal-header">
                 <h5 class="modal-title">Listado de proveedores</h5>
-                <button
-                  type="button"
-                  class="close"
-                  data-dismiss="modal"
-                  aria-label="Close"
-                >
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                   <span aria-hidden="true">×</span>
                 </button>
               </div>
@@ -545,11 +335,7 @@
                 </table>
               </div>
               <div class="modal-footer">
-                <button
-                  type="button"
-                  class="btn btn-danger"
-                  data-dismiss="modal"
-                >
+                <button type="button" class="btn btn-danger" data-dismiss="modal">
                   Cerrar
                 </button>
               </div>
@@ -557,47 +343,25 @@
           </div>
         </div>
         <!--MODAL AUMENTAR STOCK-->
-        <div
-          class="modal fade"
-          [attr.id]="'modal-stock-' + idx"
-          tabindex="-1"
-          role="dialog"
-          style="display: none"
-          aria-hidden="true"
-        >
+        <div class="modal fade" [attr.id]="'modal-stock-' + idx" tabindex="-1" role="dialog" style="display: none"
+          aria-hidden="true">
           <form #stockForm="ngForm" (ngSubmit)="aumentar_stock(stockForm)">
             <div class="modal-dialog modal-dialog-centered" role="document">
               <div class="modal-content">
                 <div class="modal-header">
                   <h5 class="modal-title">Aumentar stock de {{ item }}</h5>
-                  <button
-                    type="button"
-                    class="close"
-                    data-dismiss="modal"
-                    aria-label="Close"
-                  >
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">×</span>
                   </button>
                 </div>
                 <div class="modal-body m-3">
                   <div class="form-group">
-                    <input
-                      type="number"
-                      class="form-control"
-                      placeholder="0"
-                      #producto_stock="ngModel"
-                      name="producto_stock"
-                      [(ngModel)]="producto_stockText"
-                      required
-                    />
+                    <input type="number" class="form-control" placeholder="0" #producto_stock="ngModel"
+                      name="producto_stock" [(ngModel)]="producto_stockText" required />
                   </div>
                 </div>
                 <div class="modal-footer">
-                  <button
-                    type="button"
-                    class="btn btn-danger"
-                    data-dismiss="modal"
-                  >
+                  <button type="button" class="btn btn-danger" data-dismiss="modal">
                     Cerrar
                   </button>
                   <button type="submit" class="btn btn-primary">

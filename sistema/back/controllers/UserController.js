@@ -1,31 +1,30 @@
 const User = require('../models/user');
-const bcrypt = require('bcrypt-nodejs');
+const bcrypt = require('bcryptjs');
 const jwt = require('../helpers/jwt');
 
 //Metodo para registrar
-function registrar(req, res) {
+async function registrar(req, res) {
   const params = req.body;
 
   const user = new User();
 
   if (params.password) {
-    bcrypt.hash(params.password, null, null, function (err, hash) {
-      if (hash) {
-        user.password = hash;
-        user.nombre = params.nombre;
-        user.apellido = params.apellido;
-        user.email = params.email;
-        user.role = params.role;
+    const hash = await bcrypt.hash(params.password, 12)
+    if (hash) {
+      user.password = hash;
+      user.nombre = params.nombre;
+      user.apellido = params.apellido;
+      user.email = params.email;
+      user.role = params.role;
 
-        user.save((err, user_save) => {
-          if (err) {
-            res.status(500).send({ error: 'No se ingreso el usuario' });
-          } else {
-            res.status(200).send({ user: user_save });
-          }
-        });
-      }
-    });
+      user.save((err, user_save) => {
+        if (err) {
+          res.status(500).send({ error: 'No se ingreso el usuario' });
+        } else {
+          res.status(200).send({ user: user_save });
+        }
+      });
+    }
   } else {
     res.status(403).send({ error: 'No ingreso contraseña' });
   }

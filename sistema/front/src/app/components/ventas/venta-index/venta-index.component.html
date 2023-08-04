@@ -21,11 +21,7 @@
               <div class="card-header">
                 <div class="row">
                   <div class="col-lg-6">
-                    <a
-                      [routerLink]="['/venta/registrar']"
-                      class="btn btn-primary"
-                      >Registrar venta</a
-                    >
+                    <a [routerLink]="['/venta/registrar']" class="btn btn-primary">Registrar venta</a>
 
                     <h1 class="header-title">Ventas realizadas</h1>
                   </div>
@@ -64,30 +60,17 @@
                   </td>
                   <td>
                     <div class="btn-group">
-                      <button
-                        type="button"
-                        class="btn mb-1 btn-secondary dropdown-toggle"
-                        data-toggle="dropdown"
-                        aria-haspopup="true"
-                        aria-expanded="false"
-                      >
+                      <button type="button" class="btn mb-1 btn-secondary dropdown-toggle" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">
                         <i class="fas fa-cog"></i>
                       </button>
                       <div class="dropdown-menu">
-                        <a
-                          class="dropdown-item"
-                          [routerLink]="['/venta/', item._id]"
-                          >Detalle de venta</a
-                        >
-                        <a
-                          class="dropdown-item"
-                          (click)="avanzarEstado(item)"
-                          *ngIf="item.estado != 'Recibido'"
-                          >Avanzar Estado</a
-                        >
-                        <a class="dropdown-item" (click)="eliminar(item._id)"
-                          >Eliminar pedido</a
-                        >
+                        <a class="dropdown-item" [routerLink]="['/venta/', item._id]">Detalle de venta</a>
+                        <a class="dropdown-item" (click)="avanzarEstado(item)"
+                          *ngIf="item.estado != 'Recibido' && identity._id !== item.user._id">
+                          Avanzar Estado
+                        </a>
+                        <a class="dropdown-item" (click)="eliminar(item._id)">Eliminar pedido</a>
                       </div>
                     </div>
                   </td>

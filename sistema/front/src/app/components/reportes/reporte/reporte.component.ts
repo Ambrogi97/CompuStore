@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { EstadisticaService } from '../../../services/estadistica.service';
+import { ReportService } from 'src/app/services/report.service';
 
 @Component({
   selector: 'app-reporte',
@@ -15,14 +16,29 @@ export class ReporteComponent implements OnInit {
   showLabels: boolean = true;
   isDoughnut: boolean = false;
 
+  countVentasBySeller: { id: string, nombre: string, ventas: number }[] = []
+  countProdByCategory: { id: string, nombre: string, productos: number }[] = []
+
   colorScheme: any = {
     domain: ['#5AA454', '#A10A28', '#C7B42C', '#AAAAAA'],
   };
 
-  constructor(private EstadisticaService: EstadisticaService) {}
+  constructor(
+    private readonly reportService: ReportService
+  ) { }
 
-  get single() {
-    return this.EstadisticaService.ventaData;
+  get countVentas() {
+    return this.countVentasBySeller.map(x => ({
+      name: x.nombre,
+      value: x.ventas
+    }))
+  }
+
+  get countProducts() {
+    return this.countProdByCategory.map(x => ({
+      name: x.nombre,
+      value: x.productos
+    }))
   }
 
   onSelect(data: any): void {
@@ -37,5 +53,18 @@ export class ReporteComponent implements OnInit {
     console.log('Deactivate', JSON.parse(JSON.stringify(data)));
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.reportService.getCountVentasBySeller().subscribe(
+      (res) => {
+        this.countVentasBySeller = res
+      },
+      (err) => { }
+    )
+    this.reportService.getCountProdByCategory().subscribe(
+      (res) => {
+        this.countProdByCategory = res
+      },
+      (err) => { }
+    )
+  }
 }

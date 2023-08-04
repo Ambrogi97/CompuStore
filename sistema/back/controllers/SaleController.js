@@ -9,7 +9,7 @@ function registrar(req, res) {
 
   venta.client = data.client;
   venta.user = data.user;
-  venta.estado = 'En preparación';
+  venta.estado = 'Pendiente';
 
   venta.save((err, venta_save) => {
     if (venta_save) {
@@ -134,6 +134,9 @@ function cambiar_estado(req, res) {
   let estadoErr = false;
 
   switch (estado) {
+    case 'Pendiente':
+      estadoNuevo = 'En preparación'
+      break;
     case 'En preparación':
       estadoNuevo = 'En camino';
       break;

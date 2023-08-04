@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Client } from 'src/app/models/Cliente';
 import { ClientService } from 'src/app/services/client.service';
 
@@ -9,8 +10,12 @@ import { ClientService } from 'src/app/services/client.service';
 })
 export class ClienteCreateComponent implements OnInit {
   public clientes: any;
+  public success_message: string;
 
-  constructor(private _ClientService: ClientService) {
+  constructor(
+    private _ClientService: ClientService,
+    private router: Router
+  ) {
     this.clientes = new Client('', '', '', '', '', 1, '', 1, '');
   }
 
@@ -31,10 +36,12 @@ export class ClienteCreateComponent implements OnInit {
         .subscribe(
           (response) => {
             console.log(response);
+            this.success_message = 'Producto registrado';
+            this.router.navigate(['/clientes'])
           },
-          (error) => {}
+          (error) => { }
         );
     }
   }
-  ngOnInit(): void {}
+  ngOnInit(): void { }
 }

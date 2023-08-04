@@ -7,10 +7,7 @@
     </a>
     <div class="sidebar-content">
       <div class="sidebar-user">
-        <img
-          src="../../../assets/img/icon.png"
-          class="img-fluid rounded-circle mb-2"
-        />
+        <img src="../../../assets/img/icon.png" class="img-fluid rounded-circle mb-2" />
         <div class="font-weight-bold">CompuStore</div>
       </div>
 
@@ -18,13 +15,11 @@
         <li class="sidebar-item">
           <a class="sidebar-link" href="#">
             <i class="fas fa-user-alt"></i>
-            <span class="align-middle"
-              >{{ identity.nombre }} {{ identity.apellido }}<br />
-              {{ identity.role }}</span
-            >
+            <span class="align-middle">{{ identity.nombre }} {{ identity.apellido }}<br />
+              {{ identity.role }}</span>
           </a>
         </li>
-        <li class="sidebar-item active">
+        <!--         <li class="sidebar-item active">
           <a href="#dashboards" data-toggle="collapse" class="sidebar-link">
             <i class="align-middle mr-2 fas fa-fw fa-home"></i>
             <span class="align-middle">Dashboard</span>
@@ -48,7 +43,7 @@
               >
             </li>
           </ul>
-        </li>
+        </li> -->
 
         <li class="sidebar-item" routerLinkActive="sidebar-item active">
           <a class="sidebar-link" [routerLink]="['/products']">
@@ -63,11 +58,7 @@
           </a>
         </li>
         <!--Si el usuario es Administrador puede acceder a todas las funciones-->
-        <li
-          class="sidebar-item"
-          *ngIf="identity.role == 'ADMIN'"
-          routerLinkActive="sidebar-item active"
-        >
+        <li class="sidebar-item" *ngIf="identity.role == 'ADMIN'" routerLinkActive="sidebar-item active">
           <a class="sidebar-link" [routerLink]="['/usuarios']">
             <i class="far fa-user"></i>
             <span class="align-middle">Usuarios</span>

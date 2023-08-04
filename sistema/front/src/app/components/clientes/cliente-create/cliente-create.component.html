@@ -19,6 +19,19 @@
         </div>
 
         <div class="row">
+          <div class="col-12 col-lg-12" *ngIf="success_message">
+            <div class="alert alert-info alert-dismissible" role="alert">
+              <div class="alert-message">
+                {{ success_message }}
+              </div>
+
+              <button type="button" class="close" (click)="success_alert()" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">×</span>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="row">
           <div class="col-12 col-xl-12">
             <form #clienteForm="ngForm" (ngSubmit)="onSubmit(clienteForm)">
               <div class="card">
@@ -30,97 +43,57 @@
                     <div class="col-lg-4">
                       <div class="form-group">
                         <label><b>Nombre </b></label>
-                        <input
-                          type="text"
-                          class="form-control"
-                          #nombre="ngModel"
-                          name="nombre"
-                          [(ngModel)]="clientes.nombre"
-                        />
+                        <input type="text" class="form-control" #nombre="ngModel" name="nombre"
+                          [(ngModel)]="clientes.nombre" />
                       </div>
                     </div>
                     <div class="col-lg-4">
                       <div class="form-group">
                         <label><b>Apellido</b></label>
-                        <input
-                          type="text"
-                          class="form-control"
-                          #apellido="ngModel"
-                          name="apellido"
-                          [(ngModel)]="clientes.apellido"
-                        />
+                        <input type="text" class="form-control" #apellido="ngModel" name="apellido"
+                          [(ngModel)]="clientes.apellido" />
                       </div>
                     </div>
                     <div class="col-lg-4">
                       <div class="form-group">
                         <label><b>Email</b></label>
-                        <input
-                          type="text"
-                          class="form-control"
-                          #email="ngModel"
-                          name="email"
-                          [(ngModel)]="clientes.email"
-                        />
+                        <input type="text" class="form-control" #email="ngModel" name="email"
+                          [(ngModel)]="clientes.email" />
                       </div>
                     </div>
                     <div class="col-lg-4">
                       <div class="form-group">
                         <label><b>Direccion</b></label>
-                        <input
-                          type="text"
-                          class="form-control"
-                          #direccion="ngModel"
-                          name="direccion"
-                          [(ngModel)]="clientes.direccion"
-                        />
+                        <input type="text" class="form-control" #direccion="ngModel" name="direccion"
+                          [(ngModel)]="clientes.direccion" />
                       </div>
                     </div>
                     <div class="col-lg-4">
                       <div class="form-group">
                         <label><b>Telefono</b></label>
-                        <input
-                          type="number"
-                          class="form-control"
-                          #telefono="ngModel"
-                          name="telefono"
-                          [(ngModel)]="clientes.telefono"
-                        />
+                        <input type="number" class="form-control" #telefono="ngModel" name="telefono"
+                          [(ngModel)]="clientes.telefono" />
                       </div>
                     </div>
                     <div class="col-lg-4">
                       <div class="form-group">
                         <label><b>Ciudad</b></label>
-                        <input
-                          type="text"
-                          class="form-control"
-                          #ciudad="ngModel"
-                          name="ciudad"
-                          [(ngModel)]="clientes.ciudad"
-                        />
+                        <input type="text" class="form-control" #ciudad="ngModel" name="ciudad"
+                          [(ngModel)]="clientes.ciudad" />
                       </div>
                     </div>
                     <div class="col-lg-4">
                       <div class="form-group">
                         <label><b>Codigo Postal</b></label>
-                        <input
-                          type="number"
-                          class="form-control"
-                          #codigopostal="ngModel"
-                          name="codigopostal"
-                          [(ngModel)]="clientes.codigopostal"
-                        />
+                        <input type="number" class="form-control" #codigopostal="ngModel" name="codigopostal"
+                          [(ngModel)]="clientes.codigopostal" />
                       </div>
                     </div>
                     <div class="col-lg-4">
                       <div class="form-group">
                         <label><b>Pais</b></label>
-                        <input
-                          type="text"
-                          class="form-control"
-                          #pais="ngModel"
-                          name="pais"
-                          [(ngModel)]="clientes.pais"
-                        />
+                        <input type="text" class="form-control" #pais="ngModel" name="pais"
+                          [(ngModel)]="clientes.pais" />
                       </div>
                     </div>
                   </div>
